@@ -1,9 +1,25 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Importing Data
+
+# In[22]:
+
+
 # Remove the last row from the DataFrame
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
+import matplotlib.dates as mdates
 import glob
 import os
+import plotly.express as px
+
+
+# ## Test set
+
+# In[ ]:
+
 
 df = pd.read_csv('statements/1763033905327Uc7bP9NWfoP6e7u2.xls', skiprows=20, delimiter='\t', engine='python')
 df.head()
@@ -20,6 +36,10 @@ print('Start date of data:', sdate.strftime('%-d %b %Y'))
 print('End date of data:', edate.strftime('%-d %b %Y'))
 df
 
+
+# In[2]:
+
+
 plt.figure(figsize=(12, 6))
 plt.plot(df['Txn Date'], df['Balance'], '-o')
 plt.xlabel('Transaction Date')
@@ -29,6 +49,12 @@ plt.xticks(rotation=90)
 plt.gca().yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{int(x):,}'))
 plt.tight_layout()
 plt.show()
+
+
+# # Full Data
+
+# In[20]:
+
 
 all_files = glob.glob(os.path.join('statements', '*.xls'))
 dfs = []
@@ -57,7 +83,9 @@ print(f'Duplicate(s) removed: {duplicates.shape[0]}')
 full_df
 
 
-import matplotlib.dates as mdates
+# In[21]:
+
+
 plt.figure(figsize=(15, 6))
 plt.plot(full_df['Txn Date'], full_df['Balance'], '-o')
 plt.xlabel('Transaction Date')
@@ -69,7 +97,9 @@ plt.gca().xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=40))  # Increa
 plt.tight_layout()
 plt.show()
 
-import plotly.express as px
+
+# In[24]:
+
 
 fig = px.scatter(
     full_df,
@@ -81,6 +111,63 @@ fig = px.scatter(
     width=1000,
     height=500
 )
-fig.update_traces(mode='lines+markers', marker=dict(size=4))
+fig.update_traces(mode='lines+markers', marker=dict(size=5))
 fig.update_layout(xaxis_tickangle=90)
 fig.show()
+
+
+# # Monthly analysis
+
+# In[41]:
+
+
+month, year = 10, 2025
+selected_data = full_df[full_df['Txn Date'].dt.month == month]
+selected_data = selected_data[selected_data['Txn Date'].dt.year == year]
+fig = px.scatter(
+    selected_data,
+    x='Txn Date',
+    y='Balance',
+    hover_data=['Description', 'Debit', 'Credit'],  # Replace 'Description' with your actual column name
+    title=f"{selected_data['Txn Date'].dt.strftime('%B %Y').iloc[0]} Transactions",
+    labels={'Txn Date': 'Transaction Date', 'Balance': 'Balance'},
+    width=1000,
+    height=500
+)
+fig.update_traces(mode='lines+markers', marker=dict(size=5))
+fig.update_layout(xaxis_tickangle=90)
+fig.show()
+selected_data.sort_values(by='Debit', ascending=False).head(10)
+
+
+# In[42]:
+
+
+fig = px.scatter(
+    selected_data,
+    x='Txn Date',
+    y='Debit',
+    hover_data=['Description'],  # Replace 'Description' with your actual column name
+    title=f"{selected_data['Txn Date'].dt.strftime('%B %Y').iloc[0]}",
+    labels={'Txn Date': 'Transaction Date', 'Balance': 'Balance'},
+    width=1000,
+    height=500
+)
+fig.update_traces(mode='markers', marker=dict(size=5))
+fig.update_layout(xaxis_tickangle=90)
+fig.show()
+
+
+# In[58]:
+
+
+filter_df = full_df[full_df['Description'].str.contains('zerodhabro')]
+print(f'Total Amount debited: {filter_df['Debit'].sum()}')
+filter_df
+
+
+# In[ ]:
+
+
+
+
