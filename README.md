@@ -5,6 +5,7 @@ This project provides a robust, Python-based solution for aggregating, cleaning,
 
 The code is originally run in jupyter notebook and converted to script file to strip away personal info. (checkout `nbconvert` for more details)
 
+Happy Overanalyzing your spendings and regretting! ✨
 
 ## ✨ Features
 
@@ -23,7 +24,7 @@ You must have Python 3.x installed. The project relies on several key data scien
 
 * **`pandas`:** For data manipulation and cleaning.
 * **`matplotlib` & `plotly`:** For data visualization.
-* **`num2words`:** For converting numbers to words (used in transaction filtering).
+* **`num2words`:** For converting numbers to words (its horrible - should remove it).
 
 ### Installation
 
