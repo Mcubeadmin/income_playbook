@@ -1,7 +1,7 @@
 
 # 💰 Automated Bank Statement Analyzer
 
-This project provides a robust, Python-based solution for aggregating, cleaning, and visualizing bank transaction data from multiple `.xls` files. It transforms raw bank statements into actionable insights, showing balance trends, and summarizing monthly debit/credit activity. I have paritcularly used the bank statements from State Bank of India (SBI). The statements are not always consistent so had to manually add or substract rows in the statements for the skiprow option to reach the data start row correctly.
+This project provides a robust, Python-based solution for aggregating, cleaning, and visualizing bank transaction data from multiple `.xls` files. It transforms raw bank statements into actionable insights, showing balance trends, and summarizing monthly debit/credit activity. I have paritcularly used the bank statements from State Bank of India (SBI). The statements are not always consistent so had to manually add or substract rows in the statements for the skiprow option to reach the data start row correctly (Check out Custominzation section at the end).
 
 The code is originally run in jupyter notebook and converted to script file to strip away personal info. (checkout `nbconvert` for more details)
 
