@@ -96,15 +96,3 @@ Crypto Engine: Msoffcrypto Tool (In-Memory Binary Decryption)
 
 ⚖️ License
 Distributed under the MIT License. See LICENSE for more information.
-
-
----
-
-### 🎨 How to capture and structure your screenshots:
-1. Create a folder named **`images`** inside your repository directory.
-2. Run your app using the **Fake Data Generator** we built earlier so your real data is completely hidden.
-3. **`dashboard_main.png`**: Take a screenshot of the top half of your browser window showing the title, the beautiful green line chart, and click one of the dots so the highlighted metrics card loads right below it.
-4. **`dashboard_search.png`**: Type `IIT, NEFT` or `SWIGGY` into your advanced filter search bar, turn on the metrics summary display, and take a screenshot highlighting the search outcome tables and the dynamic red/green metrics!
-5. Save those screenshots directly inside the `images/` directory with the exact filenames listed in the markdown file, and push them to GitHub! Your profile page will look incredible.
-
----
