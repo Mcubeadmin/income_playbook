@@ -1,6 +1,6 @@
 # 🏦 Multi-Statement Account Dashboard 📊
 
-[![Streamlit App](https://static.streamlit.io/badge_svg.svg)](https://streamlit.io)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://streamlit.io)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -39,13 +39,15 @@ An advanced, privacy-first financial intelligence dashboard built with Python an
 
 ### 1. Main Financial Performance Workspace
 *A unified overview showing running account trends alongside interactive point inspection.*
+
 ![Main Dashboard Interface](images/dashboard_main.png)
-*(Screenshot Advice: Cap the top layout featuring your main Plotly trend line and an active transaction click-metric display box).*
+
+![Top Transactions](images/dashboard_top.png)
 
 ### 2. Multi-Keyword Filtering & Advanced Search Metrics
-*Isolate exact financial nodes across thousands of line items using Boolean search modes.*
+*Isolate exact financial nodes across thousands of line items using Regex search modes.*
+
 ![Advanced Filtering Layout](images/dashboard_search.png)
-*(Screenshot Advice: Take a crop image of your search block showing matching item scorecards and the top transactions tables).*
 
 ---
 
